@@ -86,12 +86,15 @@
   </br>  
    </br>
 
-    
+   
+<h2 align="center"> :partying_face: Proje Anlatım Videosu : </h2>
+<br>
+<br>
 <h2 align="center">:fire: Proje Detay Raporu : </h2>
 
 
  
- 
+ <br>
  <h5 align="center">“Kader gayrete aşıktır.” - Yunus Emre</h5>
 
 
