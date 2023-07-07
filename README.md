@@ -88,7 +88,7 @@
 
    
 <h2 align="center"> :fire: Proje Anlatım Videosu : </h2>
-<a href="https://youtu.be/IN227gSewrI"> Videoya ulaşmak için :) </a>
+<a href="https://youtu.be/IN227gSewrI" align="center" > Videoya ulaşmak için :) </a>
 <br>
 <br>
 
