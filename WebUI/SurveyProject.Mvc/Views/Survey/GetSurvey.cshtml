@@ -1,0 +1,54 @@
+﻿@model SurveyViewModel
+
+<link rel="stylesheet" type="text/css" href="~/css/survey.css">
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-11 col-sm-10 col-md-10 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
+            <div class="px-0 pt-4 pb-0 mt-3 mb-3">
+                <h2 id="heading">SURVEY</h2>
+                <form id="survey-form" asp-action="CreateSurvey" asp-controller="Survey" method="post">
+                    <div id="survey-questions-field">
+                        @foreach (var item in Model.SurveyQuestions)
+                        {
+                            <fieldset id="@item.Id" style="position:relative;">
+                                <div class="form-card" id="form-card-@item.Id">
+                                    <label class="fieldlabels" style="font-weight: 800; color: black;">@item.Question</label><br/>
+                                </div>
+                                <div id="question-options-@item.Id" style="position:relative;">
+                                    @if (item.QuestionType == 0)
+                                    {
+                                        <input type="text" max="30" id="question-@item.Id" required/>
+                                    }
+                                    else if (item.QuestionType == 1)
+                                    {
+                                        <textarea maxlength="250" id="question-@item.Id"></textarea>
+                                    }
+                                    else if (item.QuestionType == 2)
+                                    {
+                                        <input type="range" min="0" max="100" id="question-@item.Id"/>
+                                    }
+                                    else
+                                    {
+                                        <div style="display: flex; justify-content: flex-start; align-items: flex-start; flex-direction: column;flex-wrap: wrap;">
+                                            @foreach (var optionItem in item.SurveyQuestionOptions)
+                                            {
+                                                <div style="display: flex;justify-content: space-between; gap: 12px; align-items: center;">
+                                                    <input type="radio" name="survey-question-option-@item.Id" class="survey-question-option-@item.Id" value="@optionItem.Id" style="margin-top: 15px;"/>
+                                                    <label>@optionItem.Text</label>
+                                                </div>
+                                            }
+                                        </div>
+                                    }
+                                </div>
+                                <input type="hidden" id="question-type-@item.Id" value="@item.QuestionType"/>
+                            </fieldset>
+                        }
+                    </div>
+                    <input type="button" onclick="prepareSurveyAnswerFormData()" class="next action-button" value="Save"/>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/survey.js"></script>

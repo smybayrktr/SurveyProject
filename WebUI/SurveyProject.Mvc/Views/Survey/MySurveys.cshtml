@@ -1,0 +1,17 @@
+﻿@model MySurveysViewModel
+
+<link rel="stylesheet" type="text/css" href="~/css/survey.css">
+<div class="container-fluid">
+    @foreach (var item in Model.Surveys)
+    {
+        <div class="row justify-content-center">
+            <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 text-center p-0 mt-3 mb-2">
+                <div class="px-0 pt-4 pb-0 mt-3 mb-3">
+                    <h3><a asp-action="MySurveyStatistics" asp-controller="Survey" asp-route-surveyId="@item.Id">@item.Url</a></h3>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+

@@ -1,0 +1,19 @@
+﻿@model SurveyQuestionViewModel
+
+<fieldset id="@Model.Count" style="position:relative;">
+    <button type="button" onclick="deleteSurveyQuestion(@Model.Count)" style="position:absolute;right:0;top:25px;">Delete</button>
+    <div class="form-card" id="form-card-@Model.Count">
+        <label class="fieldlabels">Question Type</label><br />
+        <select onchange="getSelectedQuestionType(this)" asp-for="QuestionType" id="question-type-@Model.Count" required>
+            <option value="0" selected>Single Line Text</option>
+            <option value="1">Multiple Line Text</option>
+            <option value="2">Scoring</option>
+            <option value="3">Multiple Choice</option>
+        </select><br />
+    </div>
+    <label class="fieldlabels">Question</label>
+    <input type="text" id="question-@Model.Count" required />
+    <div id="question-options-@Model.Count" style="position:relative;">
+        @await Component.InvokeAsync("SurveyQuestionOption", new { questionType = 0, count = 1 })
+    </div>
+</fieldset>

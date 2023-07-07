@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Utilities\" />
+    <None Remove="Utilities\IoC\" />
+    <None Remove="Constants\" />
+    <None Remove="Utilities\Jwt\" />
+    <None Remove="Helpers\" />
+    <None Remove="Helpers\DateHelper\" />
+    <None Remove="Helpers\EmailHelper\" />
+    <None Remove="Helpers\FileHelper\" />
+    <None Remove="Helpers\StringHelper\" />
+    <None Remove="Helpers\UrlHelper\" />
+    <None Remove="Utilities\Google\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Utilities\" />
+    <Folder Include="Constants\" />
+    <Folder Include="Utilities\Jwt\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Helpers\DateHelper\" />
+    <Folder Include="Helpers\EmailHelper\" />
+    <Folder Include="Helpers\StringHelper\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
+    <PackageReference Include="MimeKit" Version="4.1.0" />
+  </ItemGroup>
+</Project>

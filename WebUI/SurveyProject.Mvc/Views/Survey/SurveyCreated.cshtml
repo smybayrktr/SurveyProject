@@ -1,0 +1,16 @@
+﻿@model SurveyCreatedViewModel
+
+<link rel="stylesheet" type="text/css" href="~/css/survey.css">
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-10 col-md-10 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
+            <div class="px-0 pt-4 pb-0 mt-3 mb-3">
+                <h1 id="heading">Survey Created</h1>
+                <h2>You can share your survey via:</h2>
+                <h2>@Model.Url</h2><br />
+                <a href="https://api.whatsapp.com/send?text=@Model.Url">
+                <img src="~/images/wp.png" style="width:60px; height:auto;" />Send Whatsapp</a>
+            </div>
+        </div>
+    </div>
+</div>

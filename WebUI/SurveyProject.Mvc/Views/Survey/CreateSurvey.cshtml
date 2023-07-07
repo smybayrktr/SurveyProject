@@ -1,0 +1,22 @@
+﻿@model SurveyViewModel
+
+<link rel="stylesheet" type="text/css" href="~/css/survey.css">
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-11 col-sm-10 col-md-10 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
+            <div class="px-0 pt-4 pb-0 mt-3 mb-3">
+                <h2 id="heading">Create Survey</h2>
+                <form id="survey-form" asp-action="CreateSurvey" asp-controller="Survey" method="post">
+                    <div id="survey-questions-field">
+                        @await Component.InvokeAsync("SurveyQuestion", new { count = 1 })
+                    </div>
+                    <input type="button" onclick="createSurveyQuestion()" value="Add Question"/>
+                    <input type="button" onclick="prepareSurveyFormData()" class="next action-button" value="Submit" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/survey.js"></script>
+

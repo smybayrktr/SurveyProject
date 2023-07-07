@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Extensions\" />
+    <None Remove="Mappings\" />
+    <None Remove="Repositories\" />
+    <None Remove="Repositories\Schedule\" />
+    <None Remove="Repositories\Email\" />
+    <None Remove="Repositories\Auth\" />
+    <None Remove="Repositories\AppUser\" />
+    <None Remove="Repositories\Survey\" />
+    <None Remove="Repositories\SurveyAnswer\" />
+    <None Remove="Repositories\SurveyQuestion\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+    <Folder Include="Mappings\" />
+    <Folder Include="Repositories\" />
+    <Folder Include="Repositories\Schedule\" />
+    <Folder Include="Repositories\Email\" />
+    <Folder Include="Repositories\Auth\" />
+    <Folder Include="Repositories\AppUser\" />
+    <Folder Include="Repositories\Survey\" />
+    <Folder Include="Repositories\SurveyAnswer\" />
+    <Folder Include="Repositories\SurveyQuestion\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\SurveyProject.Infrastructure\SurveyProject.Infrastructure.csproj" />
+    <ProjectReference Include="..\SurveyProject.DataTransferObjects\SurveyProject.DataTransferObjects.csproj" />
+    <ProjectReference Include="..\..\Core\SurveyProject.Core\SurveyProject.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="MailKit" Version="4.1.0" />
+    <PackageReference Include="Hangfire" Version="1.8.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.31.0" />
+  </ItemGroup>
+</Project>

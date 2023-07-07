@@ -1,0 +1,25 @@
+﻿@model SurveyQuestionOptionViewModel
+
+@if (Model.QuestionType == 3)
+{
+    @if (Model.RenderFirstTime)
+    {
+        <label>Options</label>
+        <button type="button" style="position:absolute; right:0;" onclick="createSurveyQuestionOption('@Model.Count')">Add Option</button>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:20px;" class="survey-question-option-wrapper-@Model.Count">
+            <input type="text" class="survey-question-options-@Model.Count" required/>
+            <button type="button" onclick="deleteSurveyQuestionOption(this)" style="height:42px;margin-bottom:25px;">Delete</button>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:20px;" class="survey-question-option-wrapper-@Model.Count">
+            <input type="text" class="survey-question-options-@Model.Count" required/>
+            <button type="button" onclick="deleteSurveyQuestionOption(this)" style="height:42px;margin-bottom:25px;">Delete</button>
+        </div>
+    }
+    else
+    {
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:20px;" class="survey-question-option-wrapper-@Model.Count">
+            <input type="text" class="survey-question-options-@Model.Count" required/>
+            <button type="button" onclick="deleteSurveyQuestionOption(this)" style="height:42px;margin-bottom:25px;">Delete</button>
+        </div>
+    }
+}

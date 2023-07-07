@@ -1,0 +1,56 @@
+﻿@using Newtonsoft.Json
+@model GetSurveyAnswersBySurveyIdViewModel
+
+<link rel="stylesheet" type="text/css" href="~/css/survey.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.1.1/chart.umd.js"></script>
+<script src="~/js/survey-statistics.js"></script>
+<div class="container-fluid">
+    @{
+        int i = 1;
+    }
+    @foreach (var item in Model.SurveyAnswers)
+    {
+        <div class="row justify-content-center">
+            <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 text-center p-0 mt-3 mb-2">
+                <div class="px-0 pt-4 pb-0 mt-3 mb-3">
+                    @if (item.QuestionType == 0)
+                    {
+                        <h1 class="heading">Question: @item.Question</h1>
+                        @foreach (var answer in item.SelectedSurveyAnswers)
+                        {
+                            <p>@answer.Text</p>
+                        }
+                    }
+                    else if (item.QuestionType == 1)
+                    {
+                        <h1 class="heading">Question: @item.Question</h1>
+                        @foreach (var answer in item.SelectedSurveyAnswers)
+                        {
+                            <p>@answer.Text</p>
+                        }
+                    }
+                    else if (item.QuestionType == 2)
+                    {
+                        <h1 class="heading">Question: @item.Question</h1>
+                        @foreach (var answer in item.SelectedSurveyAnswers)
+                        {
+                            <p>@answer.Text</p>
+                        }
+                    }
+                    else if (item.QuestionType == 3)
+                    {
+                        <h1 class="heading">Question: @item.Question</h1>
+                        <div style="display: flex; justify-content: center;">
+                            <div style="width: 100%;">
+                                <canvas id="multiple-choices-chart-@i"></canvas>
+                            </div>
+                        </div>
+                        <input type="hidden" id="chart-data-@i" value="@JsonConvert.SerializeObject(item.SelectedSurveyAnswers)"/>
+                        <script>createMultipleChoicesChart('@i')</script>
+                    }
+                </div>
+            </div>
+        </div>
+        i++;
+    }
+</div>

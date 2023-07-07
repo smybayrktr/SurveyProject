@@ -1,0 +1,86 @@
+version: '3.4'
+
+services:
+  survey-webapi:
+    container_name: survey-webapi
+    image: survey-webapi
+    restart: always
+    build:
+      context: .
+      dockerfile: WebApi/WebApi/Dockerfile
+    ports:
+      - "5030:80"
+    environment:
+      - "ASPNETCORE_ENVIRONMENT=Development"
+      - "ConnectionStrings:Survey=Server=survey-mssql;Database=SurveyProduction;User ID=SA;Password=x03121998X+;Encrypt=True;TrustServerCertificate=true"
+      - "ConnectionStrings:Hangfire=Server=survey-mssql;Database=HangfireProduction;User ID=SA;Password=x03121998X+;Encrypt=True;TrustServerCertificate=true"
+      - "ConnectionStrings:Redis=survey-redis:6379"
+      - "HangfireSettings:User=admin@gmail.com"
+      - "HangfireSettings:Password=admin123"
+      - "EmailConfiguration:From=noreply@survey.com.tr"
+      - "EmailConfiguration:SmtpServer=smtp.gmail.com"
+      - "EmailConfiguration:Port=465"
+      - "EmailConfiguration:Username=smyyebyraktar@gmail.com"
+      - "EmailConfiguration:Password=puoeppuaiupkjwxj"
+      - "TokenOption:Issuer=survey"
+      - "TokenOption:Audience=survey"
+      - "TokenOption:AccessTokenExpirationInMinutes=1440"
+      - "TokenOption:SecurityKey=surveysecurityKey!@#%+!SurveyProject"
+      - "BaseUrl=http://host.docker.internal:5030/"
+      - "AppUrl=http://host.docker.internal:5031/"
+    volumes:
+      - ${HOME}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${HOME}/ASP.NET/Https:/root/.aspnet/https:ro
+    depends_on:
+      - survey-mssql
+      - survey-redis
+  
+  survey-webapp:
+    container_name: survey-webapp
+    image: survey-webapp
+    restart: always
+    build:
+      context: .
+      dockerfile: WebUI/SurveyProject.Mvc/Dockerfile
+    ports:
+      - "5031:80"
+    environment:
+      - "ASPNETCORE_ENVIRONMENT=Development"
+      - "BaseUrl=http://host.docker.internal:5031/"
+      - "ApiUrl=http://host.docker.internal:5030"
+      - "Google:ClientId=436951938640-k4ncignif2b9l2nu7viaibc83633mfpq.apps.googleusercontent.com"
+      - "Google:ClientSecret=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"
+    volumes:
+      - ${HOME}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${HOME}/ASP.NET/Https:/root/.aspnet/https:ro
+    depends_on:
+      - survey-webapi
+
+  survey-mssql:
+    container_name: survey-mssql
+    image: mcr.microsoft.com/azure-sql-edge:latest
+    restart: always
+    environment:
+      - "ACCEPT_EULA=1"
+      - "MSSQL_SA_PASSWORD=x03121998X+"
+    volumes:
+      - survey-mssql-storage:/var/opt/mssql
+    ports:
+      - "1433:1433"
+        
+  survey-redis:
+    image: redis:6.2-alpine
+    restart: always
+    ports:
+        - '6379:6379'
+    command: redis-server --save 20 1 --loglevel warning
+    volumes:
+      - survey-redis-storage:/data
+    
+volumes:
+  survey-redis-storage:
+    driver: local
+  survey-mssql-storage:
+    driver: local
+  
+        

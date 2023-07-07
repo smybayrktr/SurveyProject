@@ -1,0 +1,45 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+    <link rel="stylesheet" type="text/css" href="~/css/styles.css">
+    <title> Süm Survey </title>
+</head>
+<body>
+    <div class="container-fluid" id="header">
+        <nav class="navbar navbar-expand-md navbar-light">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><a asp-action="Index" asp-controller="Home"><img src="~/images/logo.png" style="max-height:150px"></a>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo03">
+                    <ul class="navbar-nav">
+                        @await Component.InvokeAsync("HeaderMenuItems") 
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        @RenderBody()
+    </div>
+    <footer class="container-fluid mt-1 p-4">
+        <div class="container ">
+            <div class="row pb-1">
+                <div class="col-lg-3 col-md-12">
+                    <a asp-action="Index" asp-controller="Home"><img src="~/images/logo.png" style="max-height:150px"></a>
+                </div>
+                <hr>
+            </div>
+            <hr>
+            <div class="row pt-2">
+                <div class="col-lg-12 text-center">
+                    <span>&copy <a href="">smybayrktr.com</a> All Rights Received. </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</body>
+</html>
