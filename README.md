@@ -87,11 +87,10 @@
    </br>
 
    
-<h2 align="center"> :partying_face: Proje Anlatım Videosu : </h2>
+<h2 align="center"> :fire: Proje Anlatım Videosu : </h2>
+<a href="https://youtu.be/IN227gSewrI"> Videoya ulaşmak için :) </a>
 <br>
 <br>
-<h2 align="center">:fire: Proje Detay Raporu : </h2>
-
 
  
  <br>
