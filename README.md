@@ -56,16 +56,30 @@
 <ul>
     <li>
         <div align="center">
-    Veritabanı için Entity Framework kullandım çünkü proje yapısına diğer orm'lere göre daha uygundu.Diğer orm'ler içerisinden dapperı denedim. Dapper yazımı zorlaştırırken veritabanı işlemlerini hızlandırmaktadır. Sistemimizin trafiği şu an az olduğu için göz ardı edilebilir. Sistemimiz PnP mantığında çalıştığı için değiştirmek çok kolay olacaktır zaten :)
-    <a href="https://github.com/smybayrktr/CourseApp/tree/main/src/Infrastructure/CourseApp.Infrastructure/Repositories/Dapper"> Dapper ile kodlamayı görmek için tıklayın      </a>
+    Veritabanı için Entity Framework kullandım çünkü proje yapısına diğer orm'lere göre daha uygundu. Diğer orm'ler içerisinden dapperı denedim. Dapper yazımı zorlaştırırken veritabanı işlemlerini hızlandırmaktadır. Sistemimizin trafiği şu an az olduğu için göz ardı edilebilir. Sistemimiz PnP mantığında çalıştığı için değiştirmek çok kolay olacaktır zaten :)
             </div>
         </li>    
      </br>
       </br>
          <li>
         <div align="center">
-  Sistemimizde Hangfire kullanılmıştır. Kullanmamızdaki amaç belirli bir işi belirlenen bir süre zarfında çalıştırmak istememizdi. Buna en güzel örnek olarak kullanıcı sistemimize üye olduktan 1 dakika sonra Hoşgeldin maili, google ile üye olunduğunda ise kullanıcı şifresi gönderilmektedir. </div>
-        </li>    
+  Sistemimizde Hangfire kullanılmıştır. Kullanmamızdaki amaç belirli bir işi belirlenen bir süre zarfında çalıştırmak istememizdi. Google ile üye olunduğunda ise kullanıcı şifresi gönderilmektedir. Aynı zamanda kullanıcı anket oluşturduğunda oluşturduğu anketin linki de mail aracılığı ile gönderilmektedir.
+        </div>
+        </li>
+   </br>
+      </br>
+         <li>
+        <div align="center">
+ Redis ile oluşturulan anketler önbelleğe alınarak sistemin hızlandırılması amaçlanmıştır. 
+        </div>
+        </li>   
+   </br>
+      </br>
+         <li>
+        <div align="center">
+ AutoMapper kullanılarak mapleme işlemleri düzenlenmiştir.
+        </div>
+        </li>  
          
 </ul>
 
@@ -73,10 +87,11 @@
    </br>
 
     
-<h2 align="center">:fire: Yayınlanmış Sitemize ulaşmak için </h2>
+<h2 align="center">:fire: Proje Detay Raporu : </h2>
 
- <div align="center"><a href="https://sumblogapp.xyz/home">v0.0.1</a></div></br>
+
  
- <h5 align="center">“Be so good they can't ignore you.” - Steve Martin</h5>
+ 
+ <h5 align="center">“Kader gayrete aşıktır.” - Yunus Emre</h5>
 
 
